@@ -2510,7 +2510,7 @@ End of comment */
                                                 <div id="map" style="height: 600px; width: 100%; border-radius: 12px; overflow: hidden;"></div>
                                                 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
                                                 <!-- Google Maps API - Using provided API key -->
-                                                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzegVDVsmjH1m3_l3MaKa3uKbuyTCQxDE&libraries=geometry,places&callback=initGoogleMaps"></script>
+                                                <script async defer src="https://maps.googleapis.com/maps/api/js?key=<?php echo getenv('GOOGLE_MAPS_API_KEY') ?: 'AIzaSyAzegVDVsmjH1m3_l3MaKa3uKbuyTCQxDE'; ?>&libraries=geometry,places&callback=initGoogleMaps"></script>
                                         </div>
                                         <!-- ================= Cars Modal ================= -->
                                         <div class="modal-overlay" id="carsModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
@@ -2911,6 +2911,9 @@ End of comment */
 
                                         // Show payment form modal
                                         function showPaymentForm() {
+                                                // Close the cars modal first
+                                                closeCarsModal();
+                                                
                                                 const paymentModalHTML = `
                                                         <div id="payment-modal" style="
                                                                 position: fixed;
@@ -2932,7 +2935,14 @@ End of comment */
                                                                         width: 90%;
                                                                         max-height: 90vh;
                                                                         overflow-y: auto;
+                                                                        position: relative;
                                                                 ">
+                                                                        <!-- Close Button for Payment Modal -->
+                                                                        <button onclick="closePaymentModal()" 
+                                                                                style="position:absolute; top:15px; right:15px; background:none; border:none; cursor:pointer; font-size:20px; color:#666;">
+                                                                                <i class="fa fa-times"></i>
+                                                                        </button>
+                                                                        
                                                                         <h3 style="margin-top: 0; color: #0d2d62; text-align: center;">
                                                                                 💳 Complete Your Reservation
                                                                         </h3>
@@ -3035,7 +3045,8 @@ End of comment */
                                         async function initializeStripePayment() {
                                                 try {
                                                         // Stripe publishable key (safe for frontend use)
-                                                        const stripePublishableKey = 'pk_live_c1dt5DybAXLuSQJcmsvGtCaP00T4tYucK4';
+                                                        // Get API keys from environment variables (more secure)
+                                                        const stripePublishableKey = '<?php echo getenv("STRIPE_PUBLISHABLE_KEY") ?: "pk_live_c1dt5DybAXLuSQJcmsvGtCaP00T4tYucK4"; ?>';
                                                         
                                                         // Stripe is now properly configured with live keys
 
@@ -3146,6 +3157,14 @@ Thank you for choosing VIP Limo!
                                                 document.getElementById('carsModal').style.display = 'none';
                                                 selectedVehicle = null;
                                                 document.getElementById('selected-vehicle').style.display = 'none';
+                                        }
+
+                                        // Close reservation modal
+                                        function closeReservationModal() {
+                                                const reservationSection = document.querySelector('.reservation-section');
+                                                if (reservationSection) {
+                                                        reservationSection.style.display = 'none';
+                                                }
                                         }
 
                                         // Initialize map (basic Leaflet map)
