@@ -1,0 +1,41 @@
+modules = ["nodejs-20", "web", "python-3.11", "php", "php-8.2"]
+
+[nix]
+channel = "stable-25_05"
+packages = ["php81Packages.composer"]
+
+[agent]
+expertMode = true
+integrations = ["javascript_database:1.0.0", "javascript_stripe:1.0.0", "flask_stripe:1.0.0"]
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "VIP Limo PHP Server"
+
+[[workflows.workflow]]
+name = "VIP Limo PHP Server"
+author = "agent"
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "php -S 0.0.0.0:5000"
+waitForPort = 5000
+
+[[ports]]
+localPort = 5000
+externalPort = 80
+
+[deployment]
+deploymentTarget = "autoscale"
+run = ["python", "-m", "http.server"]

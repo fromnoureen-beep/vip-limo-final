@@ -1,0 +1,208 @@
+<!-- start Simple Custom CSS and JS -->
+<style type="text/css">
+/* Add your CSS code here.
+
+For example:
+.example {
+    color: red;
+}
+
+For brushing up on your CSS knowledge, check out http://www.w3schools.com/css/css_syntax.asp
+
+End of comment */ 
+
+header#site-header {
+    display: none !important;
+}
+
+input#gform_submit_button_1 {
+  display: none !important;
+}
+
+div#gform_fields_1 {
+    background: #0d456a;
+    padding: 30px 20px;
+    border-radius: 10px;
+}
+
+div#gform_fields_1 .gfield {
+    color: #fff;
+}
+
+button#not-now-btn {
+    background: #fff;
+    width: 150px;
+	    color: #000;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+button#pay-btn {
+    background: #fff;
+    width: 150px;
+	    color: #000;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.elementor-tab-content p {
+    display: flex;
+    flex-direction: column !important;
+}
+
+div#fleet-section .elementor-tabs-wrapper .elementor-tab-desktop-title.elementor-active {
+    background: linear-gradient(45deg, #000000, transparent);
+}
+
+div#gform_fields_3 {
+    padding: 30px 20px;
+    background: #fff;
+}
+
+form#gform_3 {
+    padding: 30px 20px;
+    background: #fff;
+}
+
+.elementor-column.fleet-boxes {
+    background: #ffffff;
+    box-shadow: 5px 10px 30px 10px #efefef;
+    border-radius: 20px;
+    padding: 0;
+}
+
+
+.elementor-column.fleet-boxes:hover {
+    background: linear-gradient(0deg, #0D4162 1.23%, #065E99 100.13%);
+    color: #fff;
+}
+
+.elementor-column.fleet-boxes:hover 
+.infobox-title-section h2.title {
+    color: #fff;
+}
+
+.elementor-column.fleet-boxes:hover h2.title {
+    color: #fff !important;
+}
+
+.elementor-column.fleet-boxes:hover p {
+    color: #fff !important;
+}
+
+.elementor-column.fleet-boxes:hover span.elementor-icon {
+    color: #fff !important;
+}
+
+.elementor-column.fleet-boxes:hover h3.elementor-icon-box-title {
+    color: #fff !important;
+}
+
+.elementor-column.fleet-boxes:hover a.elementor-button {
+    background: #fff;
+    color: #0d456a;
+}
+
+
+
+
+[type=button], [type=submit], button {
+    background-color: #0d456a;
+    border: 1px solid #0d456a;
+    border-radius: 3px;
+    color: #fff;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: .5rem 1rem;
+    text-align: center;
+    transition: all .3s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.pum-title.popmake-title {
+    display: none;
+}
+
+
+
+
+
+.car-fleet-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.car-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.car-info {
+    flex: 1;
+}
+
+.car-info h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #002b5c;
+    margin-bottom: 10px;
+}
+
+.car-details {
+    display: flex;
+    gap: 15px;
+    font-size: 15px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.car-btn {
+    background: #004080;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.car-btn:hover {
+    background: #0066cc;
+}
+
+.car-image img {
+    max-width: 250px;
+    height: auto;
+}
+
+/* Card Hover Effect */
+.car-card:hover {
+    background: #004080; /* ya jo bhi dark blue tu use kar raha hai */
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+/* Card Hover mai andar ka text bhi white ho */
+.car-card:hover h3,
+.car-card:hover .car-details span {
+    color: #fff;
+}
+
+/* Button Hover */
+.car-card .car-btn:hover {
+    background: #fff;
+    color: #000;
+    transition: all 0.3s ease;
+}
+</style>
+<!-- end Simple Custom CSS and JS -->
